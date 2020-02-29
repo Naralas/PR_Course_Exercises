@@ -158,11 +158,11 @@ if __name__ == "__main__":
     print(f"Testing...")
     predicted_right = 0
     for sample in tqdm(test_set):
-        prediction = k_nn(train_set, sample, nb_neighbors=N_NEIGHBORS, f_distance='cosine')
+        prediction = k_nn(train_set, sample, nb_neighbors=N_NEIGHBORS, f_distance='euclidean')
         if prediction == sample.label:
             predicted_right += 1
     
     print(f"Accuracy of the system with {len(train_set)} samples and {N_NEIGHBORS} neighbors : {predicted_right / len(test_set) * 100} %")
-    # using 1500 samples, editing and condensing -> 190 samples, 6-NN : ~65%
+    # using 1500 samples, editing and condensing -> 156 samples, 6-NN : ~74%
     # condensing and editing seems to remove too many samples as when tested with 500 samples and 6-NN : ~80%
 
